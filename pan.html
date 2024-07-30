@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pan Verify</title>
+    <style>
+        .box{
+            background-color: aqua;
+            margin:200px 400px;
+            padding:20px;  
+            /* display: grid;           */
+        }
+        .box input{
+            margin:30px;
+        }
+        .box button{
+            /* margin:0px 100px; */
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body id="body">
+    <div class="container">
+        <div class="box">
+            <h1>PAN Number verification</h1>
+            PAN Number:<input id="pan"><br>
+            <button onclick="verify()">Submit</button>
+            <div id="message"></div>
+        </div>
+    </div>
+</body>
+<script>
+     function verify() {
+        const pan = document.getElementById('pan').value.toUpperCase();
+        const message = document.getElementById('message');
+        const condn = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+
+        if (condn.test(pan)) {
+            message.textContent = "PAN number is valid.";
+            message.style.color = "green";
+         }
+         else {
+            alert("Invalid PAN")
+        }
+    }
+</script>
+</html>
